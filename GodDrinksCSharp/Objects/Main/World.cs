@@ -39,9 +39,13 @@ namespace GodDrinksCSharp.Objects
         public void RemoveThing(Thing obj) => this.Things.Remove(obj);
         public void Announce(string message) => Console.WriteLine($"World Announces: {message}");
         public void Announce(string message, string language) => Console.WriteLine($"World Announces: {message} in {language}");
-        public void RunExecution() => Console.WriteLine("Starting Execution");
+        public void RunExecution() => Console.WriteLine("Running Execution");
         public bool IsExecutableBy(Thing obj) => true;
         public int GetThingIndex(Thing obj) => this.Things.IndexOf(obj);
-        public void Execute(Thing obj) => obj.Dispose();
+        public void Execute(Thing obj)
+        {
+            while (this.IsExecutableBy(obj)) this.RunExecution();
+            obj.Dispose();
+        }
     }
 }
