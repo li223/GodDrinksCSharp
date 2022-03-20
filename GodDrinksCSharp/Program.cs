@@ -1,4 +1,6 @@
-﻿/*
+﻿using GodDrinksCSharp.Objects;
+
+/*
  * The program GodDrinksCSharp implements an application that
  * creates an empty simulated world with no meaning or purpose.
  * 
@@ -9,8 +11,6 @@
 // Switch on the power line
 // Remember to put on
 // PROTECTION
-using System;
-using GodDrinksCSharp.Objects;
 
 namespace GodDrinksCSharp
 {
@@ -211,9 +211,8 @@ namespace GodDrinksCSharp
             {
                 me.SetOpinion(me.GetOpinionIndex("you are here"), false);
             }
-
             // You have made some
-            catch (ArgumentException)
+            catch (IllegalArgumentException e)
             {
                 // ILLEGAL ARGUMENTS
                 world.Announce("God is always true.");
